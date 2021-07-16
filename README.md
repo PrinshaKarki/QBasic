@@ -69,6 +69,29 @@ height%      '120
 price!       '199.99
 ```
 
+## Array 
+
+Array is a variable which stores different values of the same data type. In array index starts at one.
+
+Example:
+
+```
+DIM person(3) AS STRING
+
+person(1) = "Prinsha"
+person(2) = "Navadita"
+person(3) = "Prabina"
+
+FOR x = 1 TO 3
+    rand! = RND * 3
+    y% = INT(rand!)
+    IF y% >= 1 THEN
+        PRINT y%, person(y%),
+    END IF
+NEXT x
+
+```
+
 ## Commands
 
 Commands are instructions written in a program to do certain things. Often, they are also called as Statements. Since QBASIC is a high level language, those instructions are given using english language which we use in our day to day activities.
@@ -203,6 +226,130 @@ FOR z = 1 TO 100
 NEXT z
 ```
 
+## Select
+
+SELECT CASE is used to determine the program flow by comparing the value of a variable to specific CASE values.
+
+Example:
+
+SELECT CASE num
+
+    CASE 1
+        PRINT 1;
+        PRINT " - one"
+
+    CASE 2
+        PRINT 2;
+        PRINT " - Two"
+
+    CASE 3
+        PRINT 3;
+        PRINT " - three"
+
+    CASE 4
+        PRINT 4;
+        PRINT " - four"
+
+    CASE 5
+        PRINT 5;
+        PRINT " - five"
+
+END SELECT
+
+## End Statement
+
+It is used at the end of the QBASIC program to terminate it.
+
+Syntax : End
+
+### GOTO statement
+
+The `GOTO` statement branches to a specific line number or to the specified label (or bookmark).
+In the example below, the `GOTO` statement at the end branches the program to the beginning (after the "START" label).
+
+Example:
+
+```
+START:
+
+PRINT "Please enter a number from 1 to 3 ONLY"
+
+PRINT
+
+'INPUT "Please enter a number"; num%
+
+rand! = RND * 3
+num% = INT(rand!)
+
+IF num% = 1 THEN
+    PRINT "It's number 1, Not badd"
+
+ELSEIF num% = 2 THEN
+    PRINT "Ooo, Nice shot anyway ;)"
+
+ELSEIF num% = 3 THEN
+    PRINT "It's number three"
+
+ELSE
+    PRINT "This number is not available, sorryyy :/"
+
+END IF
+
+INPUT "Press enter key to continue"; n
+CLS
+
+GOTO START
+```
+
+### Random number generator
+
+`RANDOMIZE TIMER` initializes the random-number generator. `RND` returns a single-precision random number between 0 and 1. 
+
+The `RND * 6` statement returns a random number that is greater than or equal to 0 and less than 6.   
+
+Example:
+
+```
+RANDOMIZE TIMER
+
+FOR z = 1 TO 10
+    num = RND * 6
+
+    IF num >= 1 THEN
+        PRINT num; "="; INT(num)
+    END IF
+NEXT z
+```
+
+## Conditions
+
+Conditions are used in QBASIC to decide certain actions.
+
+### Conditional operators
+
+Conditional operators means to choose between two or more sections of the program to execute the program.
+
+= , > , < , >= , <= are the examples of conditional operators.
+
+### IF ELSE ENDIF
+
+The IF statement always asks a question (usually about the number in a variable.) If the answer is TRUE the true branch is executed. If the answer if FALSE the true branch goes to the `ELSE` statement. In both cases, the `IF ELSE` statement ends with the `ENDIF` statement.
+
+Example:
+
+```
+INPUT "1 or 2? ", n%
+IF n% = 1 OR 2 THEN
+  PRINT "Oh, ok"
+ELSE
+  PRINT "Number not found"
+END IF
+```
+
+### SELECT
+
+### Joining multiple operators (AND / OR)
+
 ## Utility commands
 
 ### Left function
@@ -225,6 +372,30 @@ Example:
 
 ```
 PRINT RIGHT$("welcome", 4) 'prints come
+```
+
+### UCASE$
+
+The `UCASE$` function converts all the strings to uppercase letters.
+
+Example:
+
+```
+Test$ = "ITS just FoR testing"
+PRINT Test$
+PRINT UCASE$(Test$)
+```
+
+### LCASE$
+
+The `LCASE$` function converts all the strings to lowercase letters.
+
+Example:
+
+```
+Test$ = "ITS just FoR testing"
+PRINT Test$
+PRINT LCASE$(Test$)
 ```
 
 ### String to ASCII code
